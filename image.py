@@ -4,7 +4,9 @@ from skimage.transform import resize
 from matplotlib import pyplot as plt
 import os
 
-train = open("val.txt", "r+")
+FILE_NAME = "val.txt"
+
+file = open(FILE_NAME, "r+")
 
 def process(file_):
 	im = imread(file_)
@@ -13,6 +15,6 @@ def process(file_):
 	fname = os.path.join("val", output[2], output[3])
 	imsave(fname,image)
 
-for line in train:
+for line in file:
 	values = line.split()[0]
 	process(values)
